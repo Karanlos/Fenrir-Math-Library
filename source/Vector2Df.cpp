@@ -1,4 +1,4 @@
-#include "Vector2Df.h"
+#include "Vector3Df.h"
 
 namespace FenrirMath {
 
@@ -49,8 +49,20 @@ namespace FenrirMath {
 		return Vector2Df(x + vec.x, y + vec.y);
 	}
 
+	Vector2Df& Vector2Df::operator +=(const Vector2Df& vec) {
+		this->x += vec.x;
+		this->y += vec.y;
+		return *this;
+	}
+
 	Vector2Df Vector2Df::operator -(const Vector2Df& vec) {
 		return Vector2Df(x - vec.x, y - vec.y);
+	}
+
+	Vector2Df& Vector2Df::operator -=(const Vector2Df& vec) {
+		this->x -= vec.x;
+		this->y -= vec.y;
+		return *this;
 	}
 
 	float Vector2Df::operator *(const Vector2Df& vec) {
@@ -66,4 +78,3 @@ namespace FenrirMath {
 	}
 
 }
-

@@ -1,10 +1,3 @@
-/* 
- * File:   Vector2D.h
- * Author: ehsejersen'
- *
- * Created on 27. februar 2011, 20:45
- */
-
 #ifndef VECTOR2DF_H
 #define	VECTOR2DF_H
 
@@ -27,7 +20,9 @@ namespace FenrirMath {
 		float getY();
 
 		Vector2Df operator +(const Vector2Df& vec);
+		Vector2Df& operator +=(const Vector2Df& vec);
 		Vector2Df operator -(const Vector2Df& vec);
+		Vector2Df& operator -=(const Vector2Df& vec);
 		float operator *(const Vector2Df& vec);
 		Vector2Df operator *(const int& constant);
 		Vector2Df operator *(const float& constant);
