@@ -1,8 +1,8 @@
 #ifndef FENRIRMATH_H
 #define	FENRIRMATH_H
 
-#include "Vector2Df.h"
-#include "Vector3Df.h"
+#include "vec2.h"
+#include "vec3.h"
 
 #endif	/* FENRIRMATH_H */
 
