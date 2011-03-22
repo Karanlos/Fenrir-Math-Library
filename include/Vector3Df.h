@@ -27,7 +27,9 @@ namespace FenrirMath {
 		Vector3Df& operator -=(const Vector3Df& vec);
 		float operator *(const Vector3Df& vec);
 		Vector3Df operator *(const int& constant);
+		Vector3Df& operator *=(const int& constant);
 		Vector3Df operator *(const float& constant);
+		Vector3Df& operator *=(const float& constant);
 
 	protected:
 		float x,y,z;

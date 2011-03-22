@@ -25,7 +25,9 @@ namespace FenrirMath {
 		Vector2Df& operator -=(const Vector2Df& vec);
 		float operator *(const Vector2Df& vec);
 		Vector2Df operator *(const int& constant);
+		Vector2Df& operator *=(const int& constant);
 		Vector2Df operator *(const float& constant);
+		Vector2Df& operator *=(const float& constant);
 
 	protected:
 		float x,y;

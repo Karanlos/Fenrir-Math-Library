@@ -87,8 +87,22 @@ namespace FenrirMath {
 		return Vector3Df(x * constant, y * constant, z * constant);
 	}
 
+	Vector3Df& Vector3Df::operator *=(const int& constant) {
+		x *= constant;
+		y *= constant;
+		z *= constant;
+		return *this;
+	}
+
 	Vector3Df Vector3Df::operator *(const float& constant) {
 		return Vector3Df(x * constant, y * constant, z * constant);
+	}
+
+	Vector3Df& Vector3Df::operator *=(const float& constant) {
+		x *= constant;
+		y *= constant;
+		z *= constant;
+		return *this;
 	}
 
 }

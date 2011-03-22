@@ -1,4 +1,5 @@
 #include "Vector3Df.h"
+#include "Vector2Df.h"
 
 namespace FenrirMath {
 
@@ -73,8 +74,20 @@ namespace FenrirMath {
 		return Vector2Df(x * constant, y * constant);
 	}
 
+	Vector2Df& Vector2Df::operator *=(const int& constant) {
+		x *= constant;
+		y *= constant;
+		return *this;
+	}
+
 	Vector2Df Vector2Df::operator *(const float& constant) {
 		return Vector2Df(x * constant, y * constant);
+	}
+
+	Vector2Df& Vector2Df::operator *=(const float& constant) {
+		x *= constant;
+		y *= constant;
+		return *this;
 	}
 
 }
