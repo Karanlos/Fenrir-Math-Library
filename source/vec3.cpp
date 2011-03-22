@@ -8,7 +8,7 @@ namespace FenM {
 		z = 0;
 	}
 
-	vec3::vec3(float x, float y, float z) {
+	vec3::vec3(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z) {
 		this->x = x;
 		this->y = y;
 		this->z = z;
@@ -17,7 +17,7 @@ namespace FenM {
 	vec3::~vec3() {
 	}
 
-	void vec3::setPosition(float x, float y, float z) {
+	void vec3::setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z) {
 		this->x = x;
 		this->y = y;
 		this->z = z;
@@ -29,15 +29,15 @@ namespace FenM {
 		z = vec.z;
 	}
 
-	void vec3::setX(float x) {
+	void vec3::setX(FEN_FLOAT_PRECI x) {
 		this->x = x;
 	}
 
-	void vec3::setY(float y) {
+	void vec3::setY(FEN_FLOAT_PRECI y) {
 		this->y = y;
 	}
 
-	void vec3::setZ(float z) {
+	void vec3::setZ(FEN_FLOAT_PRECI z) {
 		this->z = z;
 	}
 
@@ -45,15 +45,15 @@ namespace FenM {
 		return *this;
 	}
 
-	float vec3::getX() {
+	FEN_FLOAT_PRECI vec3::getX() {
 		return x;
 	}
 
-	float vec3::getY() {
+	FEN_FLOAT_PRECI vec3::getY() {
 		return y;
 	}
 
-	float vec3::getZ() {
+	FEN_FLOAT_PRECI vec3::getZ() {
 		return z;
 	}
 
@@ -79,7 +79,7 @@ namespace FenM {
 		return *this;
 	}
 
-	float vec3::operator *(const vec3& vec) {
+	FEN_FLOAT_PRECI vec3::operator *(const vec3& vec) {
 		return x * vec.x + y * vec.y + z * vec.z;
 	}
 
@@ -94,11 +94,11 @@ namespace FenM {
 		return *this;
 	}
 
-	vec3 vec3::operator *(const float& constant) {
+	vec3 vec3::operator *(const FEN_FLOAT_PRECI& constant) {
 		return vec3(x * constant, y * constant, z * constant);
 	}
 
-	vec3& Vector3Df::operator *=(const float& constant) {
+	vec3& vec3::operator *=(const FEN_FLOAT_PRECI& constant) {
 		x *= constant;
 		y *= constant;
 		z *= constant;

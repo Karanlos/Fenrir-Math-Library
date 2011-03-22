@@ -7,32 +7,32 @@ namespace FenM {
 
 	public:
 		vec3();
-		vec3(float x, float y, float z);
+		vec3(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z);
 		virtual ~vec3();
 
-		void setPosition(float x, float y, float z);
+		void setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z);
 		void setPosition(vec3 vec);
-		void setX(float x);
-		void setY(float y);
-		void setZ(float z);
+		void setX(FEN_FLOAT_PRECI x);
+		void setY(FEN_FLOAT_PRECI y);
+		void setZ(FEN_FLOAT_PRECI z);
 
 		vec3 getPosition();
-		float getX();
-		float getY();
-		float getZ();
+		FEN_FLOAT_PRECI getX();
+		FEN_FLOAT_PRECI getY();
+		FEN_FLOAT_PRECI getZ();
 
 		vec3 operator +(const vec3& vec);
 		vec3& operator +=(const vec3& vec);
 		vec3 operator -(const vec3& vec);
 		vec3& operator -=(const vec3& vec);
-		float operator *(const vec3& vec);
+		FEN_FLOAT_PRECI operator *(const vec3& vec);
 		vec3 operator *(const int& constant);
 		vec3& operator *=(const int& constant);
-		vec3 operator *(const float& constant);
-		vec3& operator *=(const float& constant);
+		vec3 operator *(const FEN_FLOAT_PRECI& constant);
+		vec3& operator *=(const FEN_FLOAT_PRECI& constant);
 
 	protected:
-		float x,y,z;
+		FEN_FLOAT_PRECI x,y,z;
 
 	};
 

@@ -7,30 +7,30 @@ namespace FenM {
 
 	public:
 		vec2();
-		vec2(float x, float y);
+		vec2(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y);
 		virtual ~vec2();
 
-		void setPosition(float x, float y);
+		void setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y);
 		void setPosition(vec2 vec);
-		void setX(float x);
-		void setY(float y);
+		void setX(FEN_FLOAT_PRECI x);
+		void setY(FEN_FLOAT_PRECI y);
 
 		vec2 getPosition();
-		float getX();
-		float getY();
+		FEN_FLOAT_PRECI getX();
+		FEN_FLOAT_PRECI getY();
 
 		vec2 operator +(const vec2& vec);
 		vec2& operator +=(const vec2& vec);
 		vec2 operator -(const vec2& vec);
 		vec2& operator -=(const vec2& vec);
-		float operator *(const vec2& vec);
+		FEN_FLOAT_PRECI operator *(const vec2& vec);
 		vec2 operator *(const int& constant);
 		vec2& operator *=(const int& constant);
-		vec2 operator *(const float& constant);
-		vec2& operator *=(const float& constant);
+		vec2 operator *(const FEN_FLOAT_PRECI& constant);
+		vec2& operator *=(const FEN_FLOAT_PRECI& constant);
 
 	protected:
-		float x,y;
+		FEN_FLOAT_PRECI x,y;
 
 	};
 

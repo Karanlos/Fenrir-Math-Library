@@ -7,7 +7,7 @@ namespace FenM {
 		y = 0;
 	}
 
-	vec2::vec2(float x, float y) {
+	vec2::vec2(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y) {
 		this->x = x;
 		this->y = y;
 	}
@@ -15,7 +15,7 @@ namespace FenM {
 	vec2::~vec2() {
 	}
 
-	void vec2::setPosition(float x, float y) {
+	void vec2::setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y) {
 		this->x = x;
 		this->y = y;
 	}
@@ -25,11 +25,11 @@ namespace FenM {
 		y = vec.y;
 	}
 
-	void vec2::setX(float x) {
+	void vec2::setX(FEN_FLOAT_PRECI x) {
 		this->x = x;
 	}
 
-	void vec2::setY(float y) {
+	void vec2::setY(FEN_FLOAT_PRECI y) {
 		this->y = y;
 	}
 
@@ -37,11 +37,11 @@ namespace FenM {
 		return *this;
 	}
 
-	float vec2::getX() {
+	FEN_FLOAT_PRECI vec2::getX() {
 		return x;
 	}
 
-	float vec2::getY() {
+	FEN_FLOAT_PRECI vec2::getY() {
 		return y;
 	}
 
@@ -65,7 +65,7 @@ namespace FenM {
 		return *this;
 	}
 
-	float vec2::operator *(const vec2& vec) {
+	FEN_FLOAT_PRECI vec2::operator *(const vec2& vec) {
 		return x * vec.x + y * vec.y;
 	}
 
@@ -79,11 +79,11 @@ namespace FenM {
 		return *this;
 	}
 
-	vec2 vec2::operator *(const float& constant) {
+	vec2 vec2::operator *(const FEN_FLOAT_PRECI& constant) {
 		return vec2(x * constant, y * constant);
 	}
 
-	vec2& vec2::operator *=(const float& constant) {
+	vec2& vec2::operator *=(const FEN_FLOAT_PRECI& constant) {
 		x *= constant;
 		y *= constant;
 		return *this;

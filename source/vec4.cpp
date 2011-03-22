@@ -1,115 +1,183 @@
 #include "vec4.h"
+#include "vec2.h"
+#include "vec3.h"
 
 namespace FenM {
 
 	vec4::vec4() {
-		x = 0;
-		y = 0;
-		z = 0;
+		_x = 0;
+		_y = 0;
+		_z = 0;
+		_w = 0;
 	}
 
-	vec4::vec4(float x, float y, float z) {
-		this->x = x;
-		this->y = y;
-		this->z = z;
+	vec4::vec4(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w) {
+		this->_x = _x;
+		this->_y = _y;
+		this->_z = _z;
+		this->_w = _w;
 	}
 
 	vec4::~vec4() {
 	}
 
-	void vec4::setPosition(float x, float y, float z) {
-		this->x = x;
-		this->y = y;
-		this->z = z;
+	void vec4::setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w) {
+		this->_x = _x;
+		this->_y = _y;
+		this->_z = _z;
+		this->_w = _w;
 	}
 
 	void vec4::setPosition(vec4 vec) {
-		x = vec.x;
-		y = vec.y;
-		z = vec.z;
+		_x = vec._x;
+		_y = vec._y;
+		_z = vec._z;
+		_w = vec._w;
 	}
 
-	void vec4::setX(float x) {
-		this->x = x;
+	void vec4::setX(FEN_FLOAT_PRECI z) {
+		_x = z;
 	}
 
-	void vec4::setY(float y) {
-		this->y = y;
+	void vec4::setY(FEN_FLOAT_PRECI y) {
+		_y = y;
 	}
 
-	void vec4::setZ(float z) {
-		this->z = z;
+	void vec4::setZ(FEN_FLOAT_PRECI z) {
+		_z = z;
+	}
+
+	void vec4::setW(FEN_FLOAT_PRECI w) {
+		_w = w;
 	}
 
 	vec4 vec4::getPosition() {
 		return *this;
 	}
 
-	float vec4::getX() {
-		return x;
+
+
+	// Single values getters
+	FEN_FLOAT_PRECI vec4::x() {
+		return _x;
 	}
 
-	float vec4::getY() {
-		return y;
+	FEN_FLOAT_PRECI vec4::y() {
+		return _y;
 	}
 
-	float vec4::getZ() {
-		return z;
+	FEN_FLOAT_PRECI vec4::z() {
+		return _z;
 	}
 
-	float vec4::getW() {
-		return w;
+	FEN_FLOAT_PRECI vec4::w() {
+		return _w;
 	}
+
+
+	// vec2 value getters
+	vec2 vec4::xy() {
+		return vec2(_x, _y);
+	}
+	
+	vec2 vec4::xz() {
+		return vec2(_x, _z);
+	}
+	
+	vec2 vec4::xw() {
+		return vec2(_x, _w);
+	}
+	
+	vec2 vec4::yz() {
+		return vec2(_y, _z);
+	}
+
+	vec2 vec4::yw() {
+		return vec2(_x, _y);
+	}
+
+	vec2 vec4::zw() {
+		return vec2(_z, _w);
+	}
+
+
+
+	// vec3 value getters
+	vec2 vec4::xy() {
+		return vec2(_x, _y);
+	}
+
+	vec2 vec4::xz() {
+		return vec2(_x, _z);
+	}
+
+	vec2 vec4::xw() {
+		return vec2(_x, _w);
+	}
+
+	vec2 vec4::yz() {
+		return vec2(_y, _z);
+	}
+
+	vec2 vec4::yw() {
+		return vec2(_x, _y);
+	}
+
+	vec2 vec4::zw() {
+		return vec2(_z, _w);
+	}
+
+
 
 	vec4 vec4::operator +(const vec4& vec) {
-		return vec4(x + vec.x, y + vec.y, z + vec.z, w + vec.w);
+		return vec4(_x + vec._x, _y + vec._y, _z + vec._z, _w + vec._w);
 	}
 
 	vec4& vec4::operator +=(const vec4& vec) {
-		x += vec.x;
-		y += vec.y;
-		z += vec.z;
-		w += vec.w;
+		_x += vec._x;
+		_y += vec._y;
+		_z += vec._z;
+		_w += vec._w;
 		return *this;
 	}
 
 	vec4 vec4::operator -(const vec4& vec) {
-		return vec4(x - vec.x, y - vec.y, z - vec.z, w - vec.w);
+		return vec4(_x - vec._x, _y - vec._y, _z - vec._z, _w - vec._w);
 	}
 
 	vec4& vec4::operator -=(const vec4& vec) {
-		this->x -= vec.x;
-		this->y -= vec.y;
-		this->z -= vec.z;
-		this->w -= vec.w;
+		this->_x -= vec._x;
+		this->_y -= vec._y;
+		this->_z -= vec._z;
+		this->_w -= vec._w;
 		return *this;
 	}
 
-	float vec4::operator *(const vec4& vec) {
-		return x * vec.x + y * vec.y + z * vec.z + w * vec.w;
+	FEN_FLOAT_PRECI vec4::operator *(const vec4& vec) {
+		return _x * vec._x + _y * vec._y + _z * vec._z + _w * vec._w;
 	}
 
 	vec4 vec4::operator *(const int& constant) {
-		return vec4(x * constant, y * constant, z * constant, w * constant);
+		return vec4(_x * constant, _y * constant, _z * constant, _w * constant);
 	}
 
 	vec4& vec4::operator *=(const int& constant) {
-		x *= constant;
-		y *= constant;
-		z *= constant;
-		w *= constant;
+		_x *= constant;
+		_y *= constant;
+		_z *= constant;
+		_w *= constant;
 		return *this;
 	}
 
-	vec4 vec4::operator *(const float& constant) {
-		return vec4(x * constant, y * constant, z * constant, w * constant);
+	vec4 vec4::operator *(const FEN_FLOAT_PRECI& constant) {
+		return vec4(_x * constant, _y * constant, _z * constant, _w * constant);
 	}
 
-	vec4& Vector3Df::operator *=(const float& constant) {
-		x *= constant;
-		y *= constant;
-		z *= constant;
-		w *= constant;
+	vec4& vec4::operator *=(const FEN_FLOAT_PRECI& constant) {
+		_x *= constant;
+		_y *= constant;
+		_z *= constant;
+		_w *= constant;
 		return *this;
 	}
 
