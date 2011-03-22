@@ -16,8 +16,8 @@ namespace FenM {
 		void setY(FEN_FLOAT_PRECI y);
 
 		vec2 getPosition();
-		FEN_FLOAT_PRECI getX();
-		FEN_FLOAT_PRECI getY();
+		FEN_FLOAT_PRECI x();
+		FEN_FLOAT_PRECI y();
 
 		vec2 operator +(const vec2& vec);
 		vec2& operator +=(const vec2& vec);
@@ -30,7 +30,7 @@ namespace FenM {
 		vec2& operator *=(const FEN_FLOAT_PRECI& constant);
 
 	protected:
-		FEN_FLOAT_PRECI x,y;
+		FEN_FLOAT_PRECI _x,_y;
 
 	};
 

@@ -11,10 +11,14 @@ namespace FenM {
 	public:
 		vec4();
 		vec4(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w);
+		vec4(vec2 vec, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w);
+		vec4(vec3 vec, FEN_FLOAT_PRECI w);
 		virtual ~vec4();
 
 		void setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w);
 		void setPosition(vec4 vec);
+		void setPosition(vec3 vec, FEN_FLOAT_PRECI w);
+		void setPosition(vec2 vec, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w);
 		void setX(FEN_FLOAT_PRECI x);
 		void setY(FEN_FLOAT_PRECI y);
 		void setZ(FEN_FLOAT_PRECI z);
