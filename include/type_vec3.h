@@ -1,49 +1,89 @@
 #ifndef VEC3_H
 #define	VEC3_H
 
-namespace FenM {
+namespace fenm {
 
-	class vec2;
+	template <typename _T> class type_vec2;
 
-	class vec3 {
+	template <typename _T>
+	class type_vec3 {
 
 	public:
-		vec3();
-		vec3(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z);
-		vec3(vec2 vec, FEN_FLOAT_PRECI z);
-		virtual ~vec3();
+		type_vec3();
+		type_vec3(type_vec2<_T> vec, _T z);
+		type_vec3(_T x, _T y, _T z);
+		virtual ~type_vec3();
 
-		void setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z);
-		void setPosition(vec3 vec);
-		void setPosition(vec2 vec, FEN_FLOAT_PRECI z);
-		void setX(FEN_FLOAT_PRECI x);
-		void setY(FEN_FLOAT_PRECI y);
-		void setZ(FEN_FLOAT_PRECI z);
+		void setPosition(_T x, _T y, _T z);
+		void setPosition(type_vec3<_T> vec3);
+		void setPosition(type_vec2<_T> vec, _T z);
+		void setX(_T x);
+		void setY(_T y);
+		void setZ(_T z);
 
-		vec3 getPosition();
+		type_vec3<_T> getPosition();
+		_T x();
+		_T y();
+		_T z();
 
-		FEN_FLOAT_PRECI x();
-		FEN_FLOAT_PRECI y();
-		FEN_FLOAT_PRECI z();
+		type_vec2<_T> xy();
+		type_vec2<_T> xz();
+		type_vec2<_T> yz();
 
-		vec2 xy();
-		vec2 xz();
-		vec2 yz();
-
-		vec3 operator +(const vec3& vec);
-		vec3& operator +=(const vec3& vec);
-		vec3 operator -(const vec3& vec);
-		vec3& operator -=(const vec3& vec);
-		FEN_FLOAT_PRECI operator *(const vec3& vec);
-		vec3 operator *(const int& constant);
-		vec3& operator *=(const int& constant);
-		vec3 operator *(const FEN_FLOAT_PRECI& constant);
-		vec3& operator *=(const FEN_FLOAT_PRECI& constant);
+		type_vec3<_T> operator +(const type_vec3<_T>& vec);
+		type_vec3<_T>& operator +=(const type_vec3<_T>& vec);
+		type_vec3<_T> operator -(const type_vec3<_T>& vec);
+		type_vec3<_T>& operator -=(const type_vec3<_T>& vec);
+		_T operator *(const type_vec3<_T>& vec);
+		type_vec3<_T> operator *(const long& constant);
+		type_vec3<_T>& operator *=(const long& constant);
+		type_vec3<_T> operator *(const double& constant);
+		type_vec3<_T>& operator *=(const double& constant);
 
 	protected:
-		FEN_FLOAT_PRECI _x,_y,_z;
+		_T _x, _y, _z;
 
 	};
+
+//	class vec3 {
+//
+//	public:
+//		vec3();
+//		vec3(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z);
+//		vec3(vec2 vec, FEN_FLOAT_PRECI z);
+//		virtual ~vec3();
+//
+//		void setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z);
+//		void setPosition(vec3 vec);
+//		void setPosition(vec2 vec, FEN_FLOAT_PRECI z);
+//		void setX(FEN_FLOAT_PRECI x);
+//		void setY(FEN_FLOAT_PRECI y);
+//		void setZ(FEN_FLOAT_PRECI z);
+//
+//		vec3 getPosition();
+//
+//		FEN_FLOAT_PRECI x();
+//		FEN_FLOAT_PRECI y();
+//		FEN_FLOAT_PRECI z();
+//
+//		vec2 xy();
+//		vec2 xz();
+//		vec2 yz();
+//
+//		vec3 operator +(const vec3& vec);
+//		vec3& operator +=(const vec3& vec);
+//		vec3 operator -(const vec3& vec);
+//		vec3& operator -=(const vec3& vec);
+//		FEN_FLOAT_PRECI operator *(const vec3& vec);
+//		vec3 operator *(const int& constant);
+//		vec3& operator *=(const int& constant);
+//		vec3 operator *(const FEN_FLOAT_PRECI& constant);
+//		vec3& operator *=(const FEN_FLOAT_PRECI& constant);
+//
+//	protected:
+//		FEN_FLOAT_PRECI _x,_y,_z;
+//
+//	};
 
 }
 
