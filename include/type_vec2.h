@@ -9,10 +9,11 @@ namespace fenm {
 	public:
 		type_vec2();
 		type_vec2(_T x, _T y);
+		type_vec2(const type_vec2<_T>& vec);
 		virtual ~type_vec2();
 
 		void setPosition(_T x, _T y);
-		void setPosition(type_vec2<_T> vec2);
+		void setPosition(const type_vec2<_T>& vec2);
 		void setX(_T x);
 		void setY(_T y);
 

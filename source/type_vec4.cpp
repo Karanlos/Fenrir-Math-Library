@@ -20,196 +20,221 @@ namespace fenm {
 		_w = w;
 	}
 
-//	vec4::vec4() {
-//		_x = 0;
-//		_y = 0;
-//		_z = 0;
-//		_w = 0;
-//	}
-//
-//	vec4::vec4(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w) {
-//		this->_x = x;
-//		this->_y = y;
-//		this->_z = z;
-//		this->_w = w;
-//	}
-//
-//	vec4::vec4(vec2 vec, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w) {
-//		this->_x = vec.x();
-//		this->_y = vec.y();
-//		this->_z = z;
-//		this->_w = w;
-//	}
-//
-//	vec4::vec4(vec3 vec, FEN_FLOAT_PRECI w) {
-//		this->_x = vec.x();
-//		this->_y = vec.y();
-//		this->_z = vec.z();
-//		this->_w = w;
-//	}
-//
-//	vec4::~vec4() {
-//	}
-//
-//	void vec4::setPosition(FEN_FLOAT_PRECI x, FEN_FLOAT_PRECI y, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w) {
-//		this->_x = x;
-//		this->_y = y;
-//		this->_z = z;
-//		this->_w = w;
-//	}
-//
-//
-//	void vec4::setPosition(vec4 vec) {
-//		_x = vec._x;
-//		_y = vec._y;
-//		_z = vec._z;
-//		_w = vec._w;
-//	}
-//
-//
-//	void vec4::setPosition(vec3 vec, FEN_FLOAT_PRECI w) {
-//		_x = vec.x();
-//		_y = vec.y();
-//		_z = vec.z();
-//		_w = w;
-//	}
-//
-//
-//	void vec4::setPosition(vec2 vec, FEN_FLOAT_PRECI z, FEN_FLOAT_PRECI w) {
-//		_x = vec.x();
-//		_y = vec.y();
-//		_z = z;
-//		_w = w;
-//	}
-//
-//	void vec4::setX(FEN_FLOAT_PRECI z) {
-//		_x = z;
-//	}
-//
-//	void vec4::setY(FEN_FLOAT_PRECI y) {
-//		_y = y;
-//	}
-//
-//	void vec4::setZ(FEN_FLOAT_PRECI z) {
-//		_z = z;
-//	}
-//
-//	void vec4::setW(FEN_FLOAT_PRECI w) {
-//		_w = w;
-//	}
-//
-//	vec4 vec4::getPosition() {
-//		return *this;
-//	}
-//
-//
-//
-//	// Single values getters
-//	FEN_FLOAT_PRECI vec4::x() {
-//		return _x;
-//	}
-//
-//	FEN_FLOAT_PRECI vec4::y() {
-//		return _y;
-//	}
-//
-//	FEN_FLOAT_PRECI vec4::z() {
-//		return _z;
-//	}
-//
-//	FEN_FLOAT_PRECI vec4::w() {
-//		return _w;
-//	}
-//
-//	// vec2 value getters
-//	vec2 vec4::xy() {
-//		return vec2(_x, _y);
-//	}
-//
-//	vec2 vec4::xz() {
-//		return vec2(_x, _z);
-//	}
-//
-//	vec2 vec4::xw() {
-//		return vec2(_x, _w);
-//	}
-//
-//	vec2 vec4::yz() {
-//		return vec2(_y, _z);
-//	}
-//
-//	vec2 vec4::yw() {
-//		return vec2(_x, _y);
-//	}
-//
-//	vec2 vec4::zw() {
-//		return vec2(_z, _w);
-//	}
-//
-//	// vec3 value getters
-//	vec3 vec4::xyz() {
-//		return vec3(_x, _y, _z);
-//	}
-//
-//	vec3 vec4::xyw() {
-//		return vec3(_x, _y, _w);
-//	}
-//
-//	vec3 vec4::yzw() {
-//		return vec3(_y, _z, _w);
-//	}
-//
-//	// Operators
-//	vec4 vec4::operator +(const vec4& vec) {
-//		return vec4(_x + vec._x, _y + vec._y, _z + vec._z, _w + vec._w);
-//	}
-//
-//	vec4& vec4::operator +=(const vec4& vec) {
-//		_x += vec._x;
-//		_y += vec._y;
-//		_z += vec._z;
-//		_w += vec._w;
-//		return *this;
-//	}
-//
-//	vec4 vec4::operator -(const vec4& vec) {
-//		return vec4(_x - vec._x, _y - vec._y, _z - vec._z, _w - vec._w);
-//	}
-//
-//	vec4& vec4::operator -=(const vec4& vec) {
-//		this->_x -= vec._x;
-//		this->_y -= vec._y;
-//		this->_z -= vec._z;
-//		this->_w -= vec._w;
-//		return *this;
-//	}
-//
-//	FEN_FLOAT_PRECI vec4::operator *(const vec4& vec) {
-//		return _x * vec._x + _y * vec._y + _z * vec._z + _w * vec._w;
-//	}
-//
-//	vec4 vec4::operator *(const int& constant) {
-//		return vec4(_x * constant, _y * constant, _z * constant, _w * constant);
-//	}
-//
-//	vec4& vec4::operator *=(const int& constant) {
-//		_x *= constant;
-//		_y *= constant;
-//		_z *= constant;
-//		_w *= constant;
-//		return *this;
-//	}
-//
-//	vec4 vec4::operator *(const FEN_FLOAT_PRECI& constant) {
-//		return vec4(_x * constant, _y * constant, _z * constant, _w * constant);
-//	}
-//
-//	vec4& vec4::operator *=(const FEN_FLOAT_PRECI& constant) {
-//		_x *= constant;
-//		_y *= constant;
-//		_z *= constant;
-//		_w *= constant;
-//		return *this;
-//	}
+	template <typename _T>
+	type_vec4<_T>::type_vec4(const type_vec2<_T>& vec, _T z, _T w) {
+		_x = vec.x();
+		_y = vec.y();
+		_z = z;
+		_w = w;
+	}
+
+	template <typename _T>
+	type_vec4<_T>::type_vec4(const type_vec3<_T>& vec, _T w) {
+		_x = vec.x();
+		_y = vec.y();
+		_z = vec.z();
+		_w = w;
+	}
+
+	template <typename _T>
+	type_vec4<_T>::type_vec4(const type_vec4<_T>& vec) {
+		_x = vec._x;
+		_y = vec._y;
+		_z = vec._z;
+		_w = vec._w;
+	}
+
+	template <typename _T>
+	type_vec4<_T>::~type_vec4() {
+		
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setPosition(_T x, _T y, _T z, _T w) {
+		_x = x;
+		_y = y;
+		_z = z;
+		_w = w;
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setPosition(const type_vec2<_T>& vec, _T z, _T w) {
+		_x = vec.x();
+		_y = vec.y();
+		_z = z;
+		_w = w;
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setPosition(const type_vec3<_T>& vec, _T w) {
+		_x = vec.x();
+		_y = vec.y();
+		_z = vec.z();
+		_w = w;
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setPosition(const type_vec4<_T>& vec) {
+		_x = vec._x;
+		_y = vec._y;
+		_z = vec._z;
+		_w = vec._w;
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setX(_T x) {
+		_x = x;
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setY(_T y) {
+		_y = y;
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setZ(_T z) {
+		_z = z;
+	}
+
+	template <typename _T>
+	void type_vec4<_T>::setW(_T w) {
+		_w = w;
+	}
+
+	template <typename _T>
+	type_vec4<_T> type_vec4<_T>::getPosition() {
+		return type_vec4<_T>(_x, _y, _z, _w);
+	}
+
+	template <typename _T>
+	_T type_vec4<_T>::x() {
+		return _x;
+	}
+
+	template <typename _T>
+	_T type_vec4<_T>::y() {
+		return _y;
+	}
+
+	template <typename _T>
+	_T type_vec4<_T>::z() {
+		return _z;
+	}
+
+	template <typename _T>
+	_T type_vec4<_T>::w() {
+		return _w;
+	}
+
+	template <typename _T>
+	type_vec2<_T> type_vec4<_T>::xy() {
+		return type_vec2<_T>(_x, _y);
+	}
+
+	template <typename _T>
+	type_vec2<_T> type_vec4<_T>::xz() {
+		return type_vec2<_T>(_x, _z);
+	}
+
+	template <typename _T>
+	type_vec2<_T> type_vec4<_T>::xw() {
+		return type_vec2<_T>(_x, _w);
+	}
+
+	template <typename _T>
+	type_vec2<_T> type_vec4<_T>::yz() {
+		return type_vec2<_T>(_y, _z);
+	}
+
+	template <typename _T>
+	type_vec2<_T> type_vec4<_T>::yw() {
+		return type_vec2<_T>(_y, _w);
+	}
+
+	template <typename _T>
+	type_vec2<_T> type_vec4<_T>::zw() {
+		return type_vec2<_T>(_z, _w);
+	}
+
+	template <typename _T>
+	type_vec3<_T> type_vec4<_T>::xyz() {
+		return type_vec3<_T>(_z, _y, _z);
+	}
+
+	template <typename _T>
+	type_vec3<_T> type_vec4<_T>::xyw() {
+		return type_vec3<_T>(_z, _y, _w);
+	}
+
+	template <typename _T>
+	type_vec3<_T> type_vec4<_T>::xzw() {
+		return type_vec3<_T>(_x, _y, _w);
+	}
+
+	template <typename _T>
+	type_vec3<_T> type_vec4<_T>::yzw() {
+		return type_vec3<_T>(_y, _z, _w);
+	}
+
+	template <typename _T>
+	type_vec4<_T> type_vec4<_T>::operator +(const type_vec4<_T>& vec) {
+		return type_vec4<_T>(_x + vec._x, _y + vec._y, _z + vec._z, _w + vec._w);
+	}
+
+	template <typename _T>
+	type_vec4<_T>& type_vec4<_T>::operator +=(const type_vec4<_T>& vec) {
+		_x += vec._x;
+		_y += vec._y;
+		_z += vec._z;
+		_w += vec._w;
+		return *this;
+	}
+
+	template <typename _T>
+	type_vec4<_T> type_vec4<_T>::operator -(const type_vec4<_T>& vec) {
+		return type_vec4<_T>(_x - vec._x, _y - vec._y, _z - vec._z, _w - vec._w);
+	}
+
+	template <typename _T>
+	type_vec4<_T>& type_vec4<_T>::operator -=(const type_vec4<_T>& vec) {
+		_x -= vec._x;
+		_y -= vec._y;
+		_z -= vec._z;
+		_w -= vec._w;
+		return *this;
+	}
+
+	template <typename _T>
+	_T type_vec4<_T>::operator *(const type_vec4<_T>& vec) {
+		return _x * vec._x + _y * vec._y + _z * vec._z + _w * vec._w;
+	}
+
+	template <typename _T>
+	type_vec4<_T> type_vec4<_T>::operator *(const long& constant) {
+		return type_vec4(_x * constant, _y * constant+ _z * constant, _w * constant);
+	}
+
+	template <typename _T>
+	type_vec4<_T>& type_vec4<_T>::operator *=(const long& constant) {
+		_x *= constant;
+		_y *= constant;
+		_z *= constant;
+		_w *= constant;
+		return *this;
+	}
+
+	template <typename _T>
+	type_vec4<_T> type_vec4<_T>::operator *(const double& constant) {
+		return type_vec4(_x * constant, _y * constant+ _z * constant, _w * constant);
+	}
+
+	template <typename _T>
+	type_vec4<_T>& type_vec4<_T>::operator *=(const double& constant) {
+		_x *= constant;
+		_y *= constant;
+		_z *= constant;
+		_w *= constant;
+		return *this;
+	}
 
 }

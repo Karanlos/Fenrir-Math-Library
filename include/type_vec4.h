@@ -13,18 +13,22 @@ namespace fenm {
 	public:
 		type_vec4();
 		type_vec4(_T x, _T y, _T z, _T _w);
+		type_vec4(const type_vec2<_T>& vec, _T z, _T _w);
+		type_vec4(const type_vec3<_T>& vec, _T _w);
+		type_vec4(const type_vec4<_T>& vec);
 		virtual ~type_vec4();
 
 		void setPosition(_T x, _T y, _T z, _T _w);
-		void setPosition(type_vec4<_T> vec4);
-		void setPosition(type_vec3<_T> vec3, _T _w);
-		void setPosition(type_vec2<_T> vec, _T z, _T _w);
+		void setPosition(const type_vec2<_T>& vec, _T z, _T _w);
+		void setPosition(const type_vec3<_T>& vec, _T _w);
+		void setPosition(const type_vec4<_T>& vec);
 		void setX(_T x);
 		void setY(_T y);
 		void setZ(_T z);
 		void setW(_T w);
 
 		type_vec4<_T> getPosition();
+		
 		_T x();
 		_T y();
 		_T z();
