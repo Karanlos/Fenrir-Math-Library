@@ -114,4 +114,9 @@ namespace fenm {
 		*this;
 	}
 
+	template <typename _T>
+	bool type_vec2<_T>::operator ==(const type_vec2<_T>& vec) {
+		return (_x == vec._x && _y == vec._y);
+	}
+
 }

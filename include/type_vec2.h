@@ -30,6 +30,7 @@ namespace fenm {
 		type_vec2<_T>& operator *=(const long& constant);
 		type_vec2<_T> operator *(const double& constant);
 		type_vec2<_T>& operator *=(const double& constant);
+		bool operator ==(const type_vec2<_T>& vec);
 
 	protected:
 		_T _x, _y;
