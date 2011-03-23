@@ -1,6 +1,74 @@
-#include "vec2.h"
+#include "type_vec2.h"
 
 namespace FenM {
+
+	template<typename _T>
+	type_vec2<_T>::type_vec2() {
+
+	}
+
+	template<typename _T>
+	type_vec2<_T>::type_vec2(_T x, _T y) {
+		_x = x;
+		_y = y;
+	}
+
+	template<typename _T>
+	type_vec2<_T>::~type_vec2() {
+
+	}
+
+	template<typename _T>
+	void type_vec2<_T>::setPosition(_T x, _T y) {
+		_x = x;
+		_y = y;
+	}
+
+	template<typename _T>
+	void type_vec2<_T>::setPosition(type_vec2<_T> vec2) {
+		_x = vec2._x;
+		_y = vec2._y;
+	}
+
+	template<typename _T>
+	void type_vec2<_T>::setX(_T x) {
+		_x = x;
+	}
+
+	template<typename _T>
+	void type_vec2<_T>::setY(_T y) {
+		_y = y;
+	}
+
+	template<typename _T>
+	type_vec2<_T> type_vec2<_T>::getPosition() {
+		return *this;
+	}
+
+	template<typename _T>
+	_T type_vec2<_T>::x() {
+		return _x;
+	}
+
+	template<typename _T>
+	_T type_vec2<_T>::y() {
+		return _y;
+	}
+
+	template<typename _T>
+	type_vec2<_T> type_vec2<_T>::operator +(const type_vec2<_T>& vec);
+	
+	template<typename _T>
+	type_vec2<_T>& type_vec2<_T>::operator +=(const type_vec2<_T>& vec);
+		type_vec2<_T> operator -(const type_vec2<_T>& vec);
+		type_vec2<_T>& operator -=(const type_vec2<_T>& vec);
+		_T operator *(const type_vec2<_T>& vec);
+		type_vec2<_T> operator *(const int& constant);
+		type_vec2<_T>& operator *=(const int& constant);
+		type_vec2<_T> operator *(const _T& constant);
+		type_vec2<_T>& operator *=(const _T& constant);
+
+
 
 	vec2::vec2() {
 		_x = 0;

@@ -1,6 +1,6 @@
-#include "vec4.h"
-#include "vec2.h"
-#include "vec3.h"
+#include "type_vec4.h"
+#include "type_vec2.h"
+#include "type_vec3.h"
 
 namespace FenM {
 

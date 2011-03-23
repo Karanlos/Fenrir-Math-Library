@@ -3,6 +3,38 @@
 
 namespace FenM {
 
+	template<typename _T>
+	class type_vec2 {
+
+	public:
+		type_vec2();
+		type_vec2(_T x, _T y);
+		virtual ~type_vec2();
+
+		void setPosition(_T x, _T y);
+		void setPosition(type_vec2<_T> vec2);
+		void setX(_T x);
+		void setY(_T y);
+
+		type_vec2<_T> getPosition();
+		_T x();
+		_T y();
+
+		type_vec2<_T> operator +(const type_vec2<_T>& vec);
+		type_vec2<_T>& operator +=(const type_vec2<_T>& vec);
+		type_vec2<_T> operator -(const type_vec2<_T>& vec);
+		type_vec2<_T>& operator -=(const type_vec2<_T>& vec);
+		_T operator *(const type_vec2<_T>& vec);
+		type_vec2<_T> operator *(const int& constant);
+		type_vec2<_T>& operator *=(const int& constant);
+		type_vec2<_T> operator *(const _T& constant);
+		type_vec2<_T>& operator *=(const _T& constant);
+
+	protected:
+		_T _x, _y;
+
+	};
+
 	class vec2 {
 
 	public:

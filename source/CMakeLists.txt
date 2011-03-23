@@ -1,9 +1,9 @@
 project(FenrirMathLib)
 
 set(SRC
-	vec2.cpp
-	vec3.cpp
-	vec4.cpp
+	type_vec2.cpp
+	type_vec3.cpp
+	type_vec4.cpp
 )
 
 add_library(${PROJECT_NAME} STATIC ${SRC})
