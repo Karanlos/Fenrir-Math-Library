@@ -13,15 +13,15 @@ namespace fenm {
 	public:
 		type_vec4();
 		type_vec4(_T x, _T y, _T z, _T _w);
-		type_vec4(const type_vec2<_T>& vec, _T z, _T _w);
-		type_vec4(const type_vec3<_T>& vec, _T _w);
-		type_vec4(const type_vec4<_T>& vec);
+		type_vec4(const type_vec2<_T>& v, _T z, _T _w);
+		type_vec4(const type_vec3<_T>& v, _T _w);
+		type_vec4(const type_vec4<_T>& v);
 		virtual ~type_vec4();
 
 		void setPosition(_T x, _T y, _T z, _T _w);
-		void setPosition(const type_vec2<_T>& vec, _T z, _T _w);
-		void setPosition(const type_vec3<_T>& vec, _T _w);
-		void setPosition(const type_vec4<_T>& vec);
+		void setPosition(const type_vec2<_T>& v, _T z, _T _w);
+		void setPosition(const type_vec3<_T>& v, _T _w);
+		void setPosition(const type_vec4<_T>& v);
 		void setX(_T x);
 		void setY(_T y);
 		void setZ(_T z);
@@ -46,20 +46,27 @@ namespace fenm {
 		type_vec3<_T> xzw();
 		type_vec3<_T> yzw();
 
-		type_vec4<_T> operator +(const type_vec4<_T>& vec);
-		type_vec4<_T>& operator +=(const type_vec4<_T>& vec);
-		type_vec4<_T> operator -(const type_vec4<_T>& vec);
-		type_vec4<_T>& operator -=(const type_vec4<_T>& vec);
-		_T operator *(const type_vec4<_T>& vec);
+		type_vec4<_T> operator +(const type_vec4<_T>& v);
+		type_vec4<_T>& operator +=(const type_vec4<_T>& v);
+		type_vec4<_T> operator -(const type_vec4<_T>& v);
+		type_vec4<_T>& operator -=(const type_vec4<_T>& v);
+		_T operator *(const type_vec4<_T>& v);
 		type_vec4<_T> operator *(const long& constant);
 		type_vec4<_T>& operator *=(const long& constant);
 		type_vec4<_T> operator *(const double& constant);
 		type_vec4<_T>& operator *=(const double& constant);
+		bool operator ==(const type_vec4<_T>& v);
+		bool operator !=(const type_vec4<_T>& v);
 
 	protected:
-		_T _x, _y, _z, _w;
+		union {_T _x, _r, _s, _w;};
+		union {_T _y, _g, _t, _w;};
+		union {_T _z, _b, _p, _w;};
+		union {_T _w, _a, _q, _w;};
 
 	};
+
+	template <typename _T> length(type_vec4<_T> v);
 
 }
 

@@ -40,6 +40,6 @@ int main() {
 	testVec2MultConst(vec2(1.0f, 2.0f), 2, vec2(2.0f, 4.0f));
 
 //	f.close();
-	
+
 	return 0;
 }

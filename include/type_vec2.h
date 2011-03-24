@@ -9,11 +9,11 @@ namespace fenm {
 	public:
 		type_vec2();
 		type_vec2(_T x, _T y);
-		type_vec2(const type_vec2<_T>& vec);
+		type_vec2(const type_vec2<_T>& v);
 		virtual ~type_vec2();
 
 		void setPosition(_T x, _T y);
-		void setPosition(const type_vec2<_T>& vec2);
+		void setPosition(const type_vec2<_T>& v);
 		void setX(_T x);
 		void setY(_T y);
 
@@ -21,22 +21,25 @@ namespace fenm {
 		_T x();
 		_T y();
 
-		type_vec2<_T> operator +(const type_vec2<_T>& vec);
-		type_vec2<_T>& operator +=(const type_vec2<_T>& vec);
-		type_vec2<_T> operator -(const type_vec2<_T>& vec);
-		type_vec2<_T>& operator -=(const type_vec2<_T>& vec);
-		_T operator *(const type_vec2<_T>& vec);
+		type_vec2<_T> operator +(const type_vec2<_T>& v);
+		type_vec2<_T>& operator +=(const type_vec2<_T>& v);
+		type_vec2<_T> operator -(const type_vec2<_T>& v);
+		type_vec2<_T>& operator -=(const type_vec2<_T>& v);
+		_T operator *(const type_vec2<_T>& v);
 		type_vec2<_T> operator *(const long& constant);
 		type_vec2<_T>& operator *=(const long& constant);
 		type_vec2<_T> operator *(const double& constant);
 		type_vec2<_T>& operator *=(const double& constant);
-		bool operator ==(const type_vec2<_T>& vec);
-		bool operator !=(const type_vec2<_T>& vec);
+		bool operator ==(const type_vec2<_T>& v);
+		bool operator !=(const type_vec2<_T>& v);
 
 	protected:
-		_T _x, _y;
+		union {_T _x, _r;};
+		union {_T _y, _g;};
 
 	};
+
+	template <typename _T> _T length(type_vec2<_T> v);
 
 }
 

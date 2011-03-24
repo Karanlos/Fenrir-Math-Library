@@ -13,6 +13,10 @@ namespace fenm {
 	typedef type_vec2<double> dvec2;
 	typedef type_vec3<double> dvec3;
 	typedef type_vec4<double> dvec4;
+
+	typedef type_vec2<int> ivec2;
+	typedef type_vec3<int> ivec3;
+	typedef type_vec4<int> ivec4;
 }
 
 #endif	/* FENRIRMATH_H */
