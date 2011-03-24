@@ -6,13 +6,13 @@
 #include "type_vec4.h"
 
 namespace fenm {
+	typedef type_vec2<float> vec2;
+	typedef type_vec3<float> vec3;
+	typedef type_vec4<float> vec4;
 
-//	typedef type_vec2<DEFAULT_PRECI> vec2;
-//	typedef type_vec3<DEFAULT_PRECI> vec3;
-//	typedef type_vec4<DEFAULT_PRECI> vec4;
-
-#define fenm::vec2 fenm::type_vec2<DEFAULT_PRECI>;
-
+	typedef type_vec2<double> dvec2;
+	typedef type_vec3<double> dvec3;
+	typedef type_vec4<double> dvec4;
 }
 
 #endif	/* FENRIRMATH_H */
