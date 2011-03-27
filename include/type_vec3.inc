@@ -78,17 +78,17 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T type_vec3<_T>::x() {
+	_T const type_vec3<_T>::x() {
 		return _x;
 	}
 
 	template <typename _T>
-	_T type_vec3<_T>::y() {
+	_T const type_vec3<_T>::y() {
 		return _y;
 	}
 
 	template <typename _T>
-	_T type_vec3<_T>::z() {
+	_T const type_vec3<_T>::z() {
 		return _z;
 	}
 
@@ -175,8 +175,32 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T length(type_vec3<_T> v) {
-		return v.x() * v.x() + v.y() * v.y() + v.z() * v.z();
+	_T length(const type_vec3<_T>& v) {
+		return sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z());
+	}
+
+	template <typename _T>
+	type_vec3<_T> normalize(const type_vec3<_T>& v) {
+		_T temp = length(v);
+		return type_vec3<_T>(v.x() / temp, v.y() / temp, v.z() / temp);
+	}
+
+	template <typename _T>
+	_T dot(const type_vec3<_T>& v1, const type_vec3<_T>& v2) {
+		return v1.x() * v2.x() + v1.y * v2.y + v1.z * v2.z + v1.w * v2.w;
+	}
+
+	template <typename _T>
+	type_vec3<_T> crossP(const type_vec3<_T>& v1, const type_vec3<_T>& v2) {
+		type_vec3<_T> temp;
+
+		return temp;
+	}
+
+	template <typename _T2>
+	std::ostream& operator<<(std::ostream& os, const type_vec3<_T2>& v) {
+		os << "vec3(" << v._x << ", " << v._y << ", " << v._z << ")";
+		return os;
 	}
 
 }

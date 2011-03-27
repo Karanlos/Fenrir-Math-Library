@@ -1,6 +1,8 @@
 #ifndef VEC2_H
 #define	VEC2_H
 
+#include <iostream>
+
 namespace fenm {
 
 	template <typename _T>
@@ -18,8 +20,8 @@ namespace fenm {
 		void setY(_T y);
 
 		type_vec2<_T> getPosition();
-		_T x();
-		_T y();
+		const _T x();
+		const _T y();
 
 		type_vec2<_T> operator +(const type_vec2<_T>& v);
 		type_vec2<_T>& operator +=(const type_vec2<_T>& v);
@@ -33,13 +35,20 @@ namespace fenm {
 		bool operator ==(const type_vec2<_T>& v);
 		bool operator !=(const type_vec2<_T>& v);
 
+		template <typename _T2> friend std::ostream& operator << (std::ostream&, const type_vec2<_T2>& v);
+
+//		template <typename _T> friend type_vec3<;
+//		template <typename _T2> friend type_vec4<_T2>;
+
 	protected:
-		union {_T _x, _r;};
-		union {_T _y, _g;};
+		union {_T _x, _r, _s;};
+		union {_T _y, _g, _t;};
 
 	};
 
 	template <typename _T> _T length(type_vec2<_T> v);
+	template <typename _T> type_vec2<_T> normalize(type_vec2<_T> v);
+	template <typename _T> _T dot(type_vec2<_T> v1, type_vec2<_T> v2);
 
 }
 
