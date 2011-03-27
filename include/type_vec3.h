@@ -1,8 +1,6 @@
 #ifndef VEC3_H
 #define	VEC3_H
 
-#include <iostream>
-
 namespace fenm {
 
 	template <typename _T> class type_vec2;
@@ -25,9 +23,9 @@ namespace fenm {
 		void setZ(_T z);
 
 		type_vec3<_T> getPosition();
-		_T const x();
-		_T const y();
-		_T const z();
+		_T x();
+		_T y();
+		_T z();
 
 		type_vec2<_T> xy();
 		type_vec2<_T> xz();
@@ -45,20 +43,14 @@ namespace fenm {
 		bool operator ==(const type_vec3<_T>& vec);
 		bool operator !=(const type_vec3<_T>& vec);
 
-		template <typename _T2> friend std::ostream& operator << (std::ostream&, const type_vec3<_T2>& v);
-
-//		friend type_vec2;
-//		friend type_vec4;
-
 	protected:
 		_T _x, _y, _z;
 
 	};
 
-	template <typename _T> _T length(const type_vec3<_T>& v);
-	template <typename _T> type_vec3<_T> normalize(const type_vec3<_T>& v);
-	template <typename _T> _T dot(const type_vec3<_T>& v1, const type_vec3<_T>& v2);
-	template <typename _T> type_vec3<_T> crossP(const type_vec3<_T>& v1, const type_vec3<_T>& v2);
+	template <typename _T> _T length(type_vec3<_T> v);
+
+	template <typename _T> type_vec3<_T> crossP(type_vec3<_T> v1, type_vec3<_T> v2);
 
 }
 

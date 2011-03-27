@@ -1,8 +1,6 @@
 #ifndef VEC4_H
 #define	VEC4_H
 
-#include <iostream>
-
 namespace fenm {
 
 	template <typename _T> class type_vec2;
@@ -52,8 +50,7 @@ namespace fenm {
 		type_vec4<_T>& operator +=(const type_vec4<_T>& v);
 		type_vec4<_T> operator -(const type_vec4<_T>& v);
 		type_vec4<_T>& operator -=(const type_vec4<_T>& v);
-		type_vec4<_T> operator *(const type_vec4<_T>& v);
-		type_vec4<_T>& operator *=(const type_vec4<_T>& v);
+		_T operator *(const type_vec4<_T>& v);
 		type_vec4<_T> operator *(const long& constant);
 		type_vec4<_T>& operator *=(const long& constant);
 		type_vec4<_T> operator *(const double& constant);
@@ -61,22 +58,15 @@ namespace fenm {
 		bool operator ==(const type_vec4<_T>& v);
 		bool operator !=(const type_vec4<_T>& v);
 
-		template <typename _T2> friend std::ostream& operator << (std::ostream&, const type_vec4<_T2>& v);
-
-//		friend type_vec2;
-//		friend type_vec3;
-
 	protected:
-		union {_T _x, _r, _s;};
-		union {_T _y, _g, _t;};
-		union {_T _z, _b, _p;};
-		union {_T _w, _a, _q;};
+		union {_T _x, _r, _s, _w;};
+		union {_T _y, _g, _t, _w;};
+		union {_T _z, _b, _p, _w;};
+		union {_T _w, _a, _q, _w;};
 
 	};
 
-	template <typename _T> _T length(type_vec4<_T> v);
-	template <typename _T> type_vec4<_T> normalize(const type_vec4<_T>& v);
-	template <typename _T> _T dot(const type_vec4<_T>& v1, const type_vec4<_T>& v2);
+	template <typename _T> length(type_vec4<_T> v);
 
 }
 

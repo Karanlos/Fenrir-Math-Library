@@ -1,4 +1,6 @@
-#include "FenrirMath.h"
+#include "type_vec4.h"
+#include "type_vec2.h"
+#include "type_vec3.h"
 
 namespace fenm {
 
@@ -175,6 +177,20 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_vec4<_T> type_vec4<_T>::operator +(const type_vec4<_T>& v) {
+		return type_vec4<_T>(_x + v._x, _y + v._y, _z + v._z, _w + v._w);
+	}
+
+	template <typename _T>
+	type_vec4<_T>& type_vec4<_T>::operator +=(const type_vec4<_T>& v) {
+		_x += v._x;
+		_y += v._y;
+		_z += v._z;
+		_w += v._w;
+		return *this;
+	}
+
+	template <typename _T>
 	type_vec4<_T> type_vec4<_T>::operator -(const type_vec4<_T>& v) {
 		return type_vec4<_T>(_x - v._x, _y - v._y, _z - v._z, _w - v._w);
 	}
@@ -189,17 +205,8 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	type_vec4<_T> type_vec4<_T>::operator *(const type_vec4<_T>& v) {
-		return type_vec4<_T>(_x * v._x, _y * v._y, _z * v._z, _w * v._w);
-	}
-
-	template <typename _T>
-	type_vec4<_T>& type_vec4<_T>::operator *=(const type_vec4<_T>& v) {
-		_x *= v._x;
-		_y *= v._y;
-		_z *= v._z;
-		_w *= v._w;
-		return *this;
+	_T type_vec4<_T>::operator *(const type_vec4<_T>& v) {
+		return _x * v._x + _y * v._y + _z * v._z + _w * v._w;
 	}
 
 	template <typename _T>
@@ -241,25 +248,8 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T length(const type_vec4<_T>& v) {
-		return sqrt(v.x() * v.x(), v.y() * v.y(), v.z() * v.z(), v.w() * v.w());
-	}
-
-	template <typename _T>
-	type_vec4<_T> normalize(const type_vec4<_T>& v) {
-		_T temp = length(v);
-		return type_vec4<_T>(v.x() / temp, v.y() / temp, v.z() / temp, v.w() / temp);
-	}
-
-	template <typename _T>
-	_T dot(const type_vec4<_T>& v1, const type_vec4<_T>& v2) {
-		return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z() + v1.w() * v2.w();
-	}
-
-	template <typename _T2>
-	std::ostream& operator<<(std::ostream& os, const type_vec4<_T2>& v) {
-		os << "vec4(" << v._x << ", " << v._y << ", " << v._z << ", " << v._w << ")";
-		return os;
+	_T length(type_vec4<_T> v) {
+		return v.x() * v.x() + v.y() * v.y() + v.z() * v.z() + v.w() * v.w();
 	}
 
 }
