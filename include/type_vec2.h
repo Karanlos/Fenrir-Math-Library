@@ -33,6 +33,8 @@ namespace fenm {
 		bool operator ==(const type_vec2<_T>& v);
 		bool operator !=(const type_vec2<_T>& v);
 
+		template <typename _T2> friend std::ostream& operator << (std::ostream& os, const type_vec2<_T2> v);
+
 	protected:
 		union {_T _x, _r;};
 		union {_T _y, _g;};

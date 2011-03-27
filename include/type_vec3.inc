@@ -1,5 +1,4 @@
-#include "type_vec3.h"
-#include "type_vec2.h"
+#include "FenrirMath.h"
 
 namespace fenm {
 
@@ -78,32 +77,32 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T type_vec3<_T>::x() {
+	_T type_vec3<_T>::x() const {
 		return _x;
 	}
 
 	template <typename _T>
-	_T type_vec3<_T>::y() {
+	_T type_vec3<_T>::y() const {
 		return _y;
 	}
 
 	template <typename _T>
-	_T type_vec3<_T>::z() {
+	_T type_vec3<_T>::z() const {
 		return _z;
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec3<_T>::xy() {
+	type_vec2<_T> type_vec3<_T>::xy() const {
 		return type_vec2<_T>(_x, _y);
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec3<_T>::xz() {
+	type_vec2<_T> type_vec3<_T>::xz() const {
 		return type_vec2<_T>(_x, _z);
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec3<_T>::yz() {
+	type_vec2<_T> type_vec3<_T>::yz() const {
 		return type_vec2<_T>(_y, _z);
 	}
 
@@ -174,9 +173,31 @@ namespace fenm {
 		return (_x != v._x || _y != v._y || _z != v._z);
 	}
 
+	template <typename _T2>
+	std::ostream& operator << (std::ostream& os, const type_vec3<_T2> v) {
+		os << "vec3(" << v.x() << ", " << v.y() << ", " << v.z() << ")";
+		return os;
+	}
+
 	template <typename _T>
-	_T length(type_vec3<_T> v) {
-		return v.x() * v.x() + v.y() * v.y() + v.z() * v.z();
+	double length(const type_vec3<_T>& v) {
+		return sqrt(v.x() * v.x() + v.y() * v.y() + v.z() * v.z());
+	}
+
+	template <typename _T>
+	type_vec3<_T> normalize(const type_vec3<_T>& v) {
+		double temp = length(v);
+		return type_vec3<_T>(v.x() / temp, v.y() / temp, v.z() / temp);
+	}
+
+	template <typename _T>
+	double dot(const type_vec3<_T>& v1, const type_vec3<_T>& v2) {
+		return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z();
+	}
+
+	template <typename _T>
+	type_vec3<_T> crossP(const type_vec3<_T>& v1, const type_vec3<_T>& v2) {
+		return type_vec3<_T>(2,3,4);
 	}
 
 }

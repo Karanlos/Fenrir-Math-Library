@@ -1,4 +1,4 @@
-#include "type_vec2.h"
+#include "FenrirMath.h"
 
 namespace fenm {
 
@@ -124,9 +124,20 @@ namespace fenm {
 		return (_x != v._x || _y != v._y);
 	}
 
+	template <typename _T2>
+	std::ostream& operator << (std::ostream& os, const type_vec2<_T2> v) {
+		os << "vec2(" << v.x() << ", " << v.y() << ")";
+		return os;
+	}
+
 	template <typename _T>
-	_T length(type_vec2<_T> v) {
+	double length(type_vec2<_T> v) {
 		return v.x() * v.x() + v.y() * v.y();
+	}
+
+	template <typename _T>
+	double dot(const type_vec2<_T>& v1, const type_vec2<_T>& v2) {
+
 	}
 
 }

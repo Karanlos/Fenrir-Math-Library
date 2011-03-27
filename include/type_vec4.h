@@ -29,22 +29,22 @@ namespace fenm {
 
 		type_vec4<_T> getPosition();
 		
-		_T x();
-		_T y();
-		_T z();
-		_T w();
+		_T x() const;
+		_T y() const;
+		_T z() const;
+		_T w() const;
 
-		type_vec2<_T> xy();
-		type_vec2<_T> xz();
-		type_vec2<_T> xw();
-		type_vec2<_T> yz();
-		type_vec2<_T> yw();
-		type_vec2<_T> zw();
+		type_vec2<_T> xy() const;
+		type_vec2<_T> xz() const;
+		type_vec2<_T> xw() const;
+		type_vec2<_T> yz() const;
+		type_vec2<_T> yw() const;
+		type_vec2<_T> zw() const;
 
-		type_vec3<_T> xyz();
-		type_vec3<_T> xyw();
-		type_vec3<_T> xzw();
-		type_vec3<_T> yzw();
+		type_vec3<_T> xyz() const;
+		type_vec3<_T> xyw() const;
+		type_vec3<_T> xzw() const;
+		type_vec3<_T> yzw() const;
 
 		type_vec4<_T> operator +(const type_vec4<_T>& v);
 		type_vec4<_T>& operator +=(const type_vec4<_T>& v);
@@ -58,15 +58,19 @@ namespace fenm {
 		bool operator ==(const type_vec4<_T>& v);
 		bool operator !=(const type_vec4<_T>& v);
 
+		template <typename _T2> friend std::ostream& operator << (std::ostream& os, const type_vec4<_T2> v);
+
 	protected:
-		union {_T _x, _r, _s, _w;};
-		union {_T _y, _g, _t, _w;};
-		union {_T _z, _b, _p, _w;};
-		union {_T _w, _a, _q, _w;};
+		union {_T _x, _r, _s;};
+		union {_T _y, _g, _t;};
+		union {_T _z, _b, _p;};
+		union {_T _w, _a, _q;};
 
 	};
 
-	template <typename _T> length(type_vec4<_T> v);
+	template <typename _T> double length(type_vec4<_T> v);
+	template <typename _T> type_vec4<_T> normalize(const type_vec4<_T> v);
+	template <typename _T> double dot(const type_vec4<_T>& v1, const type_vec4<_T>& v2);
 
 }
 

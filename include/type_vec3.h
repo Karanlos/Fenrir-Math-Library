@@ -23,13 +23,13 @@ namespace fenm {
 		void setZ(_T z);
 
 		type_vec3<_T> getPosition();
-		_T x();
-		_T y();
-		_T z();
+		_T x() const;
+		_T y() const;
+		_T z() const;
 
-		type_vec2<_T> xy();
-		type_vec2<_T> xz();
-		type_vec2<_T> yz();
+		type_vec2<_T> xy() const;
+		type_vec2<_T> xz() const;
+		type_vec2<_T> yz() const;
 
 		type_vec3<_T> operator +(const type_vec3<_T>& v);
 		type_vec3<_T>& operator +=(const type_vec3<_T>& v);
@@ -43,13 +43,16 @@ namespace fenm {
 		bool operator ==(const type_vec3<_T>& vec);
 		bool operator !=(const type_vec3<_T>& vec);
 
+		template <typename _T2> friend std::ostream& operator << (std::ostream& os, const type_vec3<_T2> v);
+
 	protected:
 		_T _x, _y, _z;
 
 	};
 
-	template <typename _T> _T length(type_vec3<_T> v);
-
+	template <typename _T> double length(const type_vec3<_T>& v);
+	template <typename _T> type_vec3<_T> normalize(const type_vec3<_T>& v);
+	template <typename _T> double dot(const type_vec3<_T>& v1, const type_vec3<_T>& v2);
 	template <typename _T> type_vec3<_T> crossP(type_vec3<_T> v1, type_vec3<_T> v2);
 
 }
