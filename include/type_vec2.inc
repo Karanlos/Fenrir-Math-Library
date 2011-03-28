@@ -86,8 +86,16 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T type_vec2<_T>::operator *(const type_vec2<_T>& v) {
-		return _x * v._x + _y * v._y;
+	type_vec2<_T> type_vec2<_T>::operator *(const type_vec2<_T>& v) {
+		return type_vec2<_T>(_x * v._x, _y * v._y);
+	}
+
+	template <typename _T>
+	type_vec2<_T>& type_vec2<_T>::operator *=(const type_vec2<_T>& v) {
+		_x *= v._x;
+		_y *= v._y;
+
+		return *this;
 	}
 
 	template <typename _T>

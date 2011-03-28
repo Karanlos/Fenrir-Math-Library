@@ -25,7 +25,8 @@ namespace fenm {
 		type_vec2<_T>& operator +=(const type_vec2<_T>& v);
 		type_vec2<_T> operator -(const type_vec2<_T>& v);
 		type_vec2<_T>& operator -=(const type_vec2<_T>& v);
-		_T operator *(const type_vec2<_T>& v);
+		type_vec2<_T> operator *(const type_vec2<_T>& v);
+		type_vec2<_T>& operator *=(const type_vec2<_T>& v);
 		type_vec2<_T> operator *(const long& constant);
 		type_vec2<_T>& operator *=(const long& constant);
 		type_vec2<_T> operator *(const double& constant);

@@ -107,73 +107,78 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T type_vec4<_T>::x() {
+	_T type_vec4<_T>::x() const {
 		return _x;
 	}
 
 	template <typename _T>
-	_T type_vec4<_T>::y() {
+	_T type_vec4<_T>::y() const {
 		return _y;
 	}
 
 	template <typename _T>
-	_T type_vec4<_T>::z() {
+	_T type_vec4<_T>::z() const {
 		return _z;
 	}
 
 	template <typename _T>
-	_T type_vec4<_T>::w() {
+	_T type_vec4<_T>::w() const {
 		return _w;
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec4<_T>::xy() {
+	type_vec2<_T> type_vec4<_T>::xy() const {
 		return type_vec2<_T>(_x, _y);
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec4<_T>::xz() {
+	type_vec2<_T> type_vec4<_T>::xz() const {
 		return type_vec2<_T>(_x, _z);
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec4<_T>::xw() {
+	type_vec2<_T> type_vec4<_T>::xw() const {
 		return type_vec2<_T>(_x, _w);
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec4<_T>::yz() {
+	type_vec2<_T> type_vec4<_T>::yz() const {
 		return type_vec2<_T>(_y, _z);
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec4<_T>::yw() {
+	type_vec2<_T> type_vec4<_T>::yw() const {
 		return type_vec2<_T>(_y, _w);
 	}
 
 	template <typename _T>
-	type_vec2<_T> type_vec4<_T>::zw() {
+	type_vec2<_T> type_vec4<_T>::zw() const {
 		return type_vec2<_T>(_z, _w);
 	}
 
 	template <typename _T>
-	type_vec3<_T> type_vec4<_T>::xyz() {
+	type_vec3<_T> type_vec4<_T>::xyz() const {
 		return type_vec3<_T>(_z, _y, _z);
 	}
 
 	template <typename _T>
-	type_vec3<_T> type_vec4<_T>::xyw() {
+	type_vec3<_T> type_vec4<_T>::xyw() const {
 		return type_vec3<_T>(_z, _y, _w);
 	}
 
 	template <typename _T>
-	type_vec3<_T> type_vec4<_T>::xzw() {
+	type_vec3<_T> type_vec4<_T>::xzw() const {
 		return type_vec3<_T>(_x, _y, _w);
 	}
 
 	template <typename _T>
-	type_vec3<_T> type_vec4<_T>::yzw() {
+	type_vec3<_T> type_vec4<_T>::yzw() const {
 		return type_vec3<_T>(_y, _z, _w);
+	}
+
+	template <typename _T>
+	type_vec4<_T> type_vec4<_T>::xyzw() const {
+		return *this;
 	}
 
 	template <typename _T>
@@ -205,8 +210,18 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T type_vec4<_T>::operator *(const type_vec4<_T>& v) {
-		return _x * v._x + _y * v._y + _z * v._z + _w * v._w;
+	type_vec4<_T> type_vec4<_T>::operator *(const type_vec4<_T>& v) {
+		return type_vec4<_T>(_x * v._x, _y * v._y, _z * v._z, _w * v._w);
+	}
+
+	template <typename _T>
+	type_vec4<_T>& type_vec4<_T>::operator *=(const type_vec4<_T>& v) {
+		_x *= v._x;
+		_y *= v._y;
+		_z *= v._z;
+		_w *= v._w;
+
+		return *this;
 	}
 
 	template <typename _T>
