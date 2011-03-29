@@ -18,8 +18,8 @@ namespace fenm {
 		void setY(_T y);
 
 		type_vec2<_T> getPosition();
-		_T x();
-		_T y();
+		_T x() const;
+		_T y() const;
 
 		type_vec2<_T> operator +(const type_vec2<_T>& v);
 		type_vec2<_T>& operator +=(const type_vec2<_T>& v);

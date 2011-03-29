@@ -52,12 +52,12 @@ namespace fenm {
 	}
 
 	template <typename _T>
-	_T type_vec2<_T>::x() {
+	_T type_vec2<_T>::x() const {
 		return _x;
 	}
 
 	template <typename _T>
-	_T type_vec2<_T>::y() {
+	_T type_vec2<_T>::y() const {
 		return _y;
 	}
 

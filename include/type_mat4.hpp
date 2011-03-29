@@ -27,6 +27,7 @@ namespace fenm {
 
 	template <typename _T> type_mat4<_T> inverse(const type_mat4<_T>& m);
 	template <typename _T> type_mat4<_T> transpose(const type_mat4<_T>& m);
+	template <typename _T> inline double determinantInl(const type_mat4<_T>& m);
 	template <typename _T> double determinant(const type_mat4<_T>& m);
 	template <typename _T> type_mat4<_T> identityMatrix(const type_mat4<_T>& m);
 

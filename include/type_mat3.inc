@@ -56,15 +56,48 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_mat3<_T> inverse(const type_mat3<_T>& m) {
+		double temp = determinant(m);
+
+		type_mat3<_T> tempM;
+
+		tempM[0] = (m(4) * m(8) - m(5) * m(7)) / temp;
+		tempM[1] = (m(1) * m(8) - m(2) * m(7)) / -temp;
+		tempM[2] = (m(1) * m(5) - m(2) * m(4)) / temp;
+
+		tempM[3] = (m(3) * m(8) - m(2) * m(6)) / -temp;
+		tempM[4] = (m(0) * m(8) - m(2) * m(6)) / temp;
+		tempM[5] = (m(0) * m(5) - m(2) * m(3)) / -temp;
+
+		tempM[6] = (m(3) * m(7) - m(4) * m(6)) / temp;
+		tempM[7] = (m(0) * m(7) - m(1) * m(6)) / -temp;
+		tempM[8] = (m(0) * m(4) - m(1) * m(3)) / temp;
+
+		return tempM;
+
+	}
+
+	template <typename _T>
 	type_mat3<_T> transpose(const type_mat3<_T>& m) {
 		type_mat3<_T> tempM;
 
 		for(int x = 0; x < 3; x++)
 			for(int y = 0; y < 3; y++)
-				tempM[x*3+y] = m(x,y);
+				tempM[x*3+y] = m(y,x);
 
 		return tempM;
 
+	}
+
+	template <typename _T>
+	double determinantInl(const type_mat3<_T>& m) {
+
+		return m(0) * m(4) * m(8)
+				+ m(3) * m(7) * m(2)
+				+ m(6) * m(1) * m(5)
+				- m(2) * m(4) * m(6)
+				- m(5) * m(7) * m(0)
+				- m(8) * m(1) * m(3);
 	}
 
 	template <typename _T>

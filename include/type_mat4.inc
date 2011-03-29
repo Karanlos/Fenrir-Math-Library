@@ -73,7 +73,7 @@ namespace fenm {
 
 	template <typename _T>
 	type_mat4<_T> inverse(const type_mat4<_T>& m) {
-		double temp = determinant(m);
+		double temp = determinantInl(m);
 
 		std::cout << "det: " << temp << std::endl;
 
@@ -84,67 +84,67 @@ namespace fenm {
 
 		type_mat4<_T> tempM;
 
-		tempM[0] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(5),m(6),m(7)),
+		tempM[0] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(5),m(6),m(7)),
 												type_vec3<_T>(m(9),m(10),m(11)),
 												type_vec3<_T>(m(13),m(14),m(15))));
 
-		tempM[1] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),
+		tempM[1] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),
 												type_vec3<_T>(m(9),m(10),m(11)),
 												type_vec3<_T>(m(13),m(14),m(15))));
 
-		tempM[2] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),
+		tempM[2] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),
 												type_vec3<_T>(m(5),m(6),m(7)),
 												type_vec3<_T>(m(13),m(14),m(15))));
 
-		tempM[3] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),
+		tempM[3] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),
 												type_vec3<_T>(m(5),m(6),m(7)),
 												type_vec3<_T>(m(9),m(10),m(11))));
 
-		tempM[4] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(4),m(6),m(7)),
+		tempM[4] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(4),m(6),m(7)),
 												type_vec3<_T>(m(8),m(10),m(11)),
 												type_vec3<_T>(m(12),m(14),m(15))));
 
-		tempM[5] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(2),m(3)),
+		tempM[5] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(2),m(3)),
 												type_vec3<_T>(m(8),m(10),m(11)),
 												type_vec3<_T>(m(12),m(14),m(15))));
 
-		tempM[6] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(2),m(3)),
+		tempM[6] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(2),m(3)),
 												type_vec3<_T>(m(4),m(6),m(7)),
 												type_vec3<_T>(m(12),m(14),m(15))));
 
-		tempM[7] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(2),m(3)),
+		tempM[7] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(2),m(3)),
 												type_vec3<_T>(m(4),m(6),m(7)),
 												type_vec3<_T>(m(8),m(10),m(11))));
 
-		tempM[8] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(4),m(5),m(7)),
+		tempM[8] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(4),m(5),m(7)),
 												type_vec3<_T>(m(8),m(9),m(11)),
 												type_vec3<_T>(m(12),m(13),m(15))));
 
-		tempM[9] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(3)),
+		tempM[9] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(3)),
 												type_vec3<_T>(m(8),m(9),m(11)),
 												type_vec3<_T>(m(12),m(14),m(15))));
 
-		tempM[10] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(3)),
+		tempM[10] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(3)),
 												type_vec3<_T>(m(4),m(5),m(7)),
 												type_vec3<_T>(m(12),m(13),m(15))));
 
-		tempM[11] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(3)),
+		tempM[11] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(3)),
 												type_vec3<_T>(m(4),m(5),m(7)),
 												type_vec3<_T>(m(8),m(9),m(11))));
 
-		tempM[12] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(4),m(5),m(6)),
+		tempM[12] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(4),m(5),m(6)),
 												type_vec3<_T>(m(8),m(9),m(10)),
 												type_vec3<_T>(m(12),m(13),m(14))));
 
-		tempM[13] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
+		tempM[13] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
 												type_vec3<_T>(m(8),m(9),m(10)),
 												type_vec3<_T>(m(12),m(13),m(14))));
 
-		tempM[14] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
+		tempM[14] = -temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
 												type_vec3<_T>(m(4),m(5),m(6)),
 												type_vec3<_T>(m(12),m(13),m(14))));
 
-		tempM[15] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
+		tempM[15] = temp * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
 												type_vec3<_T>(m(4),m(5),m(6)),
 												type_vec3<_T>(m(8),m(9),m(10))));
 
@@ -165,12 +165,20 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	double determinantInl(const type_mat4<_T>& m) {
+		return m(0) * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(5),m(6),m(7)),type_vec3<_T>(m(9),m(10),m(11)),type_vec3<_T>(m(13),m(14),m(15))))
+			- m(4) * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),type_vec3<_T>(m(9),m(10),m(11)),type_vec3<_T>(m(13),m(14),m(15))))
+			+ m(8) * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),type_vec3<_T>(m(5),m(6),m(7)),type_vec3<_T>(m(13),m(14),m(15))))
+			- m(12) * determinantInl(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),type_vec3<_T>(m(5),m(6),m(7)),type_vec3<_T>(m(9),m(10),m(11))));
+
+	}
+
+	template <typename _T>
 	double determinant(const type_mat4<_T>& m) {
 		return m(0) * determinant(type_mat3<_T>(	type_vec3<_T>(m(5),m(6),m(7)),type_vec3<_T>(m(9),m(10),m(11)),type_vec3<_T>(m(13),m(14),m(15))))
 			- m(4) * determinant(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),type_vec3<_T>(m(9),m(10),m(11)),type_vec3<_T>(m(13),m(14),m(15))))
 			+ m(8) * determinant(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),type_vec3<_T>(m(5),m(6),m(7)),type_vec3<_T>(m(13),m(14),m(15))))
 			- m(12) * determinant(type_mat3<_T>(	type_vec3<_T>(m(1),m(2),m(3)),type_vec3<_T>(m(5),m(6),m(7)),type_vec3<_T>(m(9),m(10),m(11))));
-
 	}
 
 	template <typename _T>

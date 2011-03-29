@@ -15,6 +15,11 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_mat2<_T>::~type_mat2() {
+		
+	}
+
+	template <typename _T>
 	type_mat2<_T>::type_mat2(const type_vec2<_T>& v1, const type_vec2<_T>& v2) {
 		data[0] = v1.x();
 		data[1] = v1.y();
@@ -23,11 +28,18 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	_T type_mat2<_T>::operator ()(unsigned int n) const {
+		return data[n];
+	}
+
+	template <typename _T>
+	_T type_mat2<_T>::operator ()(unsigned int col, unsigned int row) const {
+		return data[2 * col + row];
+	}
+
+	template <typename _T>
 	_T& type_mat2<_T>::operator [](unsigned int n) {
-		if(n < 2 || n >= 0)
-			return data[n];
-		else
-			return 0;
+		return data[n];
 	}
 
 	template <typename _T>
@@ -45,20 +57,41 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_mat2<_T> inverse(const type_mat2<_T>& m) {
+		double temp = determinant(m);
+
+		std::cout << "Det: " << temp << std::endl;
+
+		type_mat2<_T> tempM;
+
+		tempM[0] = m(3) / temp;
+		tempM[1] = m(1) / -temp;
+		tempM[2] = m(2) / -temp;
+		tempM[3] = m(0) / temp;
+
+		return tempM;
+
+	}
+
+	template <typename _T>
 	type_mat2<_T> transpose(const type_mat2<_T>& m) {
 		type_mat2<_T> temp;
 
-		for(int x = 0; x < 2; x++)
-			for(int y = 0; y < 0; y++)
-				temp[x * 2 + y] = m[y * 2 + x];
+		temp[1] = m(2);
+		temp[2] = m(1);
 
 		return temp;
 
 	}
 
 	template <typename _T>
+	double determinantInl(const type_mat2<_T>& m) {
+		return m(0) * m(3) - m(1) * m(2);
+	}
+
+	template <typename _T>
 	double determinant(const type_mat2<_T>& m) {
-		return m[0] * m[2] - m[1] * m[3];
+		return m(0) * m(3) - m(1) * m(2);
 	}
 
 	template <typename _T>
