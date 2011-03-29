@@ -1,0 +1,1 @@
+Small math library (matrix 2x2,3x3,4x4 and vector 2x2,3x3,4x4) that mimics the syntax of GLSL math.
