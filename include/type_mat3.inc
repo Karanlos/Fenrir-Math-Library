@@ -67,6 +67,17 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_mat3<_T> type_mat3<_T>::operator *(const _T& constant) {
+		type_mat3<_T> tempM;
+
+		for(int i = 0; i < 9; i++)
+			tempM[i] = data[i] * constant;
+
+		return tempM;
+
+	}
+
+	template <typename _T>
 	type_mat3<_T> identityMatrix(const type_mat3<_T>& m) {
 		_T temp[] = {1,0,0,0,1,0,0,0,1};
 

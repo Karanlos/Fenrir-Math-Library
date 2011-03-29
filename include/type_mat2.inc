@@ -59,6 +59,17 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_mat2<_T> type_mat2<_T>::operator *(const _T& constant) {
+		type_mat2<_T> tempM;
+
+		for(int i = 0; i < 4; i++)
+			tempM[i] = data[i] * constant;
+
+		return tempM;
+
+	}
+
+	template <typename _T>
 	type_mat2<_T> inverse(const type_mat2<_T>& m) {
 		double temp = determinant(m);
 

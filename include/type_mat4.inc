@@ -68,6 +68,14 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_vec4<_T> type_mat4<_T>::operator *(const type_vec4<_T>& v) {
+		return type_vec4<_T>(v.x() * data[0] + v.y() * data[4] + v.z() * data[8] + v.w() * data[12],
+							v.x() * data[1] + v.y() * data[5] + v.z() * data[9] + v.w() * data[13],
+							v.x() * data[2] + v.y() * data[6] + v.z() * data[10] + v.w() * data[14],
+							v.x() * data[3] + v.y() * data[7] + v.z() * data[11] + v.w() * data[15]);
+	}
+
+	template <typename _T>
 	type_mat4<_T> type_mat4<_T>::operator *(const _T& constant) {
 		type_mat4<_T> temp;
 
