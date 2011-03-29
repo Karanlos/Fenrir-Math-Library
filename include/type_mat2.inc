@@ -1,4 +1,4 @@
-#include "FenrirMath.h"
+#include "FenrirMath.hpp"
 
 namespace fenm {
 

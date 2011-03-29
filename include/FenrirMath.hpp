@@ -4,12 +4,12 @@
 #include <cmath>
 #include <iostream>
 
-#include "type_vec2.h"
-#include "type_vec3.h"
-#include "type_vec4.h"
-#include "type_mat2.h"
-#include "type_mat3.h"
-#include "type_mat4.h"
+#include "type_vec2.hpp"
+#include "type_vec3.hpp"
+#include "type_vec4.hpp"
+#include "type_mat2.hpp"
+#include "type_mat3.hpp"
+#include "type_mat4.hpp"
 
 #define r() x()
 #define g() y()

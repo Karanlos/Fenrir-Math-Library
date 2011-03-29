@@ -1,6 +1,4 @@
-#include "type_vec4.h"
-#include "type_vec2.h"
-#include "type_vec3.h"
+#include "FenrirMath.hpp"
 
 namespace fenm {
 

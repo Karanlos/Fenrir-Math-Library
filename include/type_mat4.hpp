@@ -13,6 +13,7 @@ namespace fenm {
 		~type_mat4();
 
 		_T operator ()(unsigned int col, unsigned int row) const;
+		_T operator ()(unsigned int n) const;
 		_T& operator [](unsigned int n);
 		type_mat4<_T> operator * (const type_mat4<_T>& m);
 		type_vec4<_T> operator * (const type_vec4<_T>& m);

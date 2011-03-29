@@ -23,13 +23,13 @@ namespace fenm {
 		void setZ(_T z);
 
 		type_vec3<_T> getPosition();
-		_T x();
-		_T y();
-		_T z();
+		_T x() const;
+		_T y() const;
+		_T z() const;
 
-		type_vec2<_T> xy();
-		type_vec2<_T> xz();
-		type_vec2<_T> yz();
+		type_vec2<_T> xy() const;
+		type_vec2<_T> xz() const;
+		type_vec2<_T> yz() const;
 
 		type_vec3<_T> operator +(const type_vec3<_T>& v);
 		type_vec3<_T>& operator +=(const type_vec3<_T>& v);

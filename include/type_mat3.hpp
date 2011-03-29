@@ -13,6 +13,7 @@ namespace fenm {
 		~type_mat3();
 
 		_T operator ()(unsigned int col, unsigned int row) const;
+		_T operator ()(unsigned int n) const;
 		_T& operator [](unsigned int n);
 		type_mat3<_T> operator * (const type_mat3<_T>& m);
 		type_vec3<_T> operator * (const type_vec3<_T>& m);
@@ -26,7 +27,7 @@ namespace fenm {
 
 	template <typename _T> type_mat3<_T> inverse(const type_mat3<_T>& m);
 	template <typename _T> type_mat3<_T> transpose(const type_mat3<_T>& m);
-	template <typename _T> double determinant(const type_mat3<_T>& m);
+	template <typename _T> inline double determinant(const type_mat3<_T>& m);
 	template <typename _T> type_mat3<_T> identityMatrix(const type_mat3<_T>& m);
 
 }

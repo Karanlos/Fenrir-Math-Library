@@ -1,4 +1,4 @@
-#include "FenrirMath.h"
+#include "FenrirMath.hpp"
 
 namespace fenm {
 
@@ -14,6 +14,21 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	type_mat3<_T>::type_mat3(const type_vec3<_T>& v1, const type_vec3<_T>& v2, const type_vec3<_T>& v3) {
+		data[0] = v1.x();
+		data[1] = v1.y();
+		data[2] = v1.z();
+
+		data[3] = v2.x();
+		data[4] = v2.y();
+		data[5] = v2.z();
+
+		data[6] = v3.x();
+		data[7] = v3.y();
+		data[8] = v3.z();
+	}
+
+	template <typename _T>
 	type_mat3<_T>::~type_mat3() {
 		
 	}
@@ -24,37 +39,43 @@ namespace fenm {
 	}
 
 	template <typename _T>
+	_T type_mat3<_T>::operator ()(unsigned int n) const {
+		return data[n];
+	}
+
+	template <typename _T>
 	_T& type_mat3<_T>::operator [](unsigned int n) {
 		return data[n];
 	}
 
 	template <typename _T>
 	type_mat3<_T> identityMatrix(const type_mat3<_T>& m) {
-		type_mat3<_T> temp;
+		_T temp[] = {1,0,0,0,1,0,0,0,1};
 
-		temp[0] = 1;
-		temp[1] = 0;
-		temp[2] = 0;
-		
-		temp[3] = 0;
-		temp[4] = 1;
-		temp[5] = 0;
+		return type_mat3<_T>(temp);
+	}
 
-		temp[6] = 0;
-		temp[7] = 0;
-		temp[8] = 1;
+	template <typename _T>
+	type_mat3<_T> transpose(const type_mat3<_T>& m) {
+		type_mat3<_T> tempM;
 
-		return temp;
+		for(int x = 0; x < 3; x++)
+			for(int y = 0; y < 3; y++)
+				tempM[x*3+y] = m(x,y);
+
+		return tempM;
+
 	}
 
 	template <typename _T>
 	double determinant(const type_mat3<_T>& m) {
-		return m(0,0) * m(1,1) * m(2,2)
-				+ m(1,0) * m(2,1) * m(0,2)
-				+ m(2,0) * m(0,1) * m(1,2)
-				- m(2,0) * m(1,1) * m(0,2)
-				- m(1,0) * m(0,1) * m(2,2)
-				- m(0,0) * m(2,1) * m(1,2);
+
+		return m(0) * m(4) * m(8)
+				+ m(3) * m(7) * m(2)
+				+ m(6) * m(1) * m(5)
+				- m(2) * m(4) * m(6)
+				- m(5) * m(7) * m(0)
+				- m(8) * m(1) * m(3);
 	}
 
 }

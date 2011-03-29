@@ -1,4 +1,4 @@
-#include "type_vec2.h"
+#include "type_vec2.hpp"
 
 namespace fenm {
 
