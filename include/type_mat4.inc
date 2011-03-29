@@ -138,7 +138,7 @@ namespace fenm {
 
 		tempM[13] = temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
 												type_vec3<_T>(m(8),m(9),m(10)),
-												type_vec3<_T>(m(12),m(14),m(14))));
+												type_vec3<_T>(m(12),m(13),m(14))));
 
 		tempM[14] = -temp * determinant(type_mat3<_T>(	type_vec3<_T>(m(0),m(1),m(2)),
 												type_vec3<_T>(m(4),m(5),m(6)),
