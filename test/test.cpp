@@ -9,34 +9,35 @@ using namespace std;
 
 int main() {
 
-	mat3 m1(vec3(2,0,0), vec3(2,1,0), vec3(2,0,1));
-	mat3 m2(vec3(1,2,0), vec3(0,2,0), vec3(0,2,1));
-	mat3 m3(vec3(1,0,2), vec3(0,1,2), vec3(0,0,2));
+	vec3 v1(1,2,3);
+//	mat3 m1(vec3(1,4,7),vec3(2,5,8),vec3(3,6,9));
 
-	mat2 m4(vec2(2,0),vec2(2,1));
-	mat2 m5(vec2(1,2),vec2(0,2));
+	mat3 m1(vec3(1,2,3),vec3(4,5,6),vec3(7,8,9));
+	mat3 m2 = m1;
 
-	m1 = inverse(m1);
-	m2 = inverse(m2);
-	m3 = inverse(m3);
-	m4 = inverse(m4);
-	m5 = inverse(m5);
+	mat4 m4(vec4(1,2,3,4),vec4(5,6,7,8),vec4(9,10,11,12),vec4(13,14,15,16));
+	mat4 m5 = m4;
+
+	mat3 m3 = m1 * m2;
+	mat4 m6 = m4 * m5;
+
+	mat2 mm = mat2(vec2(1,2),vec2(3,4));
+
+	mat2 mm2 = mm * mm;
+
 
 	for(int i = 0; i < 3; i++)
-		cout << m1(0,i) << " " << m1(1,i) << " " << m1(2,i) << endl;
+		cout << m3(i,0) << " " << m3(i,1) << " " << m3(i,2) << endl;
+
 	cout << endl;
-	for(int i = 0; i < 3; i++)
-		cout << m2(0,i) << " " << m2(1,i) << " " << m2(2,i) << endl;
+
+	for(int i = 0; i < 4; i++)
+		cout << m6(i,0) << " " << m6(i,1) << " " << m6(i,2) <<  " " << m6(i,3) << endl;
+
 	cout << endl;
-	for(int i = 0; i < 3; i++)
-		cout << m3(0,i) << " " << m3(1,i) << " " << m3(2,i) << endl;
-	cout << endl;
+
 	for(int i = 0; i < 2; i++)
-		cout << m4(0,i) << " " << m4(1,i) << endl;
-	cout << endl;
-	for(int i = 0; i < 2; i++)
-		cout << m5(0,i) << " " << m5(1,i) << endl;
-
+		cout << mm2(i,0) << " " << mm2(i,1) << endl;
 
 	return 0;
 }

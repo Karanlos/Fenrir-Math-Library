@@ -58,7 +58,13 @@ namespace fenm {
 
 	template <typename _T>
 	type_mat4<_T> type_mat4<_T>::operator *(const type_mat4<_T>& m) {
+		type_mat4<_T> tempM;
 
+		for(int x = 0; x < 4; x++)
+			for(int y = 0; y < 4; y++)
+				tempM[x * 4 + y] = m(x,0) * (*this)(0,y) + m(x,1) * (*this)(1,y) + m(x,2) * (*this)(2,y) + m(x,3) * (*this)(3,y);
+
+		return tempM;
 	}
 
 	template <typename _T>

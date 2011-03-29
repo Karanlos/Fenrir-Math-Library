@@ -44,11 +44,13 @@ namespace fenm {
 
 	template <typename _T>
 	type_mat2<_T> type_mat2<_T>::operator *(const type_mat2<_T>& m) {
-		type_mat2<_T> temp;
+		type_mat2<_T> tempM;
 
 		for(int x = 0; x < 2; x++)
 			for(int y = 0; y < 2; y++)
-				temp[x * 2 + y] = data[y] * m[x * 2] + data[2 + y] * m[x * 2 + 1];
+				tempM[x * 2 + y] = m(x,0) * (*this)(0,y) + m(x,1) * (*this)(1,y);
+
+		return tempM;
 	}
 
 	template <typename _T>

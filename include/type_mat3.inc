@@ -47,6 +47,24 @@ namespace fenm {
 	_T& type_mat3<_T>::operator [](unsigned int n) {
 		return data[n];
 	}
+	
+	template <typename _T>
+	type_mat3<_T> type_mat3<_T>::operator *(const type_mat3<_T>& m) {
+		type_mat3<_T> tempM;
+
+		for(int x = 0; x < 3; x++)
+			for(int y = 0; y < 3; y++)
+				tempM[x * 3 + y] = m(x,0) * (*this)(0,y) + m(x,1) * (*this)(1,y) + m(x,2) * (*this)(2,y);
+
+		return tempM;
+	}
+
+	template <typename _T>
+	type_vec3<_T> type_mat3<_T>::operator *(const type_vec3<_T>& v) {
+		return type_vec3<_T>(v.x() * data[0] + v.y() * data[3] + v.z() * data[6],
+							v.x() * data[1] + v.y() * data[4] + v.z() * data[7],
+							v.x() * data[2] + v.y() * data[5] + v.z() * data[8]);
+	}
 
 	template <typename _T>
 	type_mat3<_T> identityMatrix(const type_mat3<_T>& m) {
