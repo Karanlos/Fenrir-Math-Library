@@ -18,7 +18,6 @@ namespace fenm {
 	type_mat2<_T>::~type_mat2() {
 		
 	}
-
 	template <typename _T>
 	type_mat2<_T>::type_mat2(const type_vec2<_T>& v1, const type_vec2<_T>& v2) {
 		data[0] = v1.x();
@@ -81,7 +80,7 @@ namespace fenm {
 		return tempM;
 
 	}
-
+	
 	template <typename _T>
 	type_mat2<_T>& type_mat2<_T>::operator *=(const double& constant) {
 		for(int i = 0; i < 4; i++)
@@ -148,7 +147,7 @@ namespace fenm {
 	double determinant(const type_mat2<_T>& m) {
 		return m(0) * m(3) - m(1) * m(2);
 	}
-
+	
 	template <typename _T>
 	type_mat2<_T> identityMatrix(const type_mat2<_T>& m) {
 		type_mat2<_T> temp;
